@@ -94,7 +94,7 @@ public class CamelK extends OpenshiftProduct implements KameletOps, BeforeEachCa
 
         CamelKConfiguration config = CamelKConfiguration.getConfiguration();
 
-        if (!isReady()) {
+        /*if (!isReady()) {
             if (!useGlobalInstallation()) {
                 LOG.info("Deploying Camel-K");
                 if (CamelKConfiguration.forceUpstream()) {
@@ -162,7 +162,7 @@ public class CamelK extends OpenshiftProduct implements KameletOps, BeforeEachCa
         ip.setSpec(specBuilder.build());
 
         camelKClient.v1().integrationPlatforms().delete();
-        camelKClient.v1().integrationPlatforms().create(ip);
+        camelKClient.v1().integrationPlatforms().create(ip);*/
 
         if (TestConfiguration.streamLogs()) {
             setupLogger();
@@ -222,12 +222,12 @@ public class CamelK extends OpenshiftProduct implements KameletOps, BeforeEachCa
 
     @Override
     public void teardownProduct() {
-        if (useGlobalInstallation()) {
+        /*if (useGlobalInstallation()) {
             LOG.debug("Skipping product teardown for global operator.");
             return;
         }
         OpenshiftClient.get().deleteSubscription(CamelKConfiguration.getConfiguration().subscriptionName());
-        removeKamelets();
+        removeKamelets();*/
     }
 
     @Override
