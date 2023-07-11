@@ -404,11 +404,11 @@ public class OpenshiftClient extends OpenShift {
      * There is a valid case where the client would be null - when multiple extensions are used in one test class
      */
     public static void deleteNamespace() {
-        if (clientWrapper != null && clientWrapper.getClient() != null) {
+        /*if (clientWrapper != null && clientWrapper.getClient() != null) {
             deleteNamespace(get().getNamespace());
             // If the current namespace is deleted also close the client
             clientWrapper.closeClient();
-        }
+        }*/
     }
 
     /**
@@ -417,7 +417,7 @@ public class OpenshiftClient extends OpenShift {
      * @param name of namespace to be deleted
      */
     public static void deleteNamespace(String name) {
-        if ((name == null) || (name.isEmpty())) {
+        /*if ((name == null) || (name.isEmpty())) {
             LOG.info("Skipped deleting namespace, name null or empty");
             return;
         }
@@ -427,7 +427,7 @@ public class OpenshiftClient extends OpenShift {
             get().namespaces().withName(name).cascading(true).delete();
             WaitUtils.waitFor(() -> get().namespaces().withName(name).get() == null, "Waiting until the namespace is removed");
             LOG.info("Deleted namespace " + name);
-        }
+        }*/
     }
 
     /**
